@@ -53,13 +53,11 @@ rules to another person"""
         
         if not nick:
             irc.reply(_('Sending you the Rules in an IRC Private Message'), prefixNick=True)
-        elif nick:
-            irc.reply(_('Sending %s the Rules in an IRC Private Message' % nick), prefixNick=False)
+        if nick:
+            irc.reply(_('Sending %s the Rules in an IRC Private Message') % nick, prefixNick=False)
                     
-        rules = _rules
-                                                                                                               
-        for line in rules.split('\n'):
-            irc.reply(line, to=nick, private=True, prefixNick=False)
+        for line in _rules.split('\n'):
+            irc.reply(line, to=nick, private=True)
 
 Class = Rules
 
