@@ -43,8 +43,8 @@ except:
     _ = lambda x:x
 
 class Rules(callbacks.Plugin):
-    """Rules [<nick>] or Help [<nick>] - nick is optional, only to be used to
-    send the rules/help to <nick>."""
+    """Rules [<nick>] - <nick> is optional, only to be used to
+    send the rules to <nick>."""
 
     @wrap([additional('nick')])
     def rules(self, irc, msg, args, nick):
