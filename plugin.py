@@ -56,7 +56,7 @@ rules to another person"""
         elif nick:
             irc.reply(_('Sending %s the Rules in an IRC Private Message' % nick), prefixNick=False)
                     
-        rules = "%s" % _rules
+        rules = _rules
                                                                                                                
         for line in rules.split('\n'):
             irc.reply(line, to=nick, private=True, prefixNick=False)
