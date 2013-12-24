@@ -3,7 +3,26 @@
 # All rights reserved.
 #
 #
-###
+##############################
+## Edit the following lines ##
+## to include your Rules    ##
+##############################
+
+_rules = """All Site Rules apply on this IRC
+With the addition of the following rules 
+1.
+2.
+3.
+4.
+\x1F\x0304Your actions here, can affect your account.\x03
+\x1F\x0304Please follow the rules, we do not want to ban you!\x03"""
+
+#################################
+## Do not edit anything bellow ##
+## here unless you know what   ##
+## you are doing               ##
+#################################
+
 
 import supybot.utils as utils
 from supybot.commands import *
@@ -37,15 +56,8 @@ rules to another person"""
         elif nick:
             irc.reply(_('Sending %s the Rules in an IRC Private Message' % nick), prefixNick=False)
                     
-        rules = """All Site Rules apply on this IRC 
-With the addition of the following rules
-1.
-2.
-3.
-4.
-\x1F\x0304Your actions here, can affect your account.\x03
-\x1F\x0304Please follow the rules, we do not want to ban you!\x03"""
-                                                                                                       
+        rules = "%s" % _rules
+                                                                                                               
         for line in rules.split('\n'):
             irc.reply(line, to=nick, private=True, prefixNick=False)
 
