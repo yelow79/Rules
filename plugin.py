@@ -51,10 +51,10 @@ class Rules(callbacks.Plugin):
         """[<nick>] optional, only used to send the 
 rules to another person"""
         
-        if not nick:
-            irc.reply(_('Sending you the Rules in an IRC Private Message'), prefixNick=True)
         if nick:
-            irc.reply(_('Sending %s the Rules in an IRC Private Message') % nick, prefixNick=False)
+	    irc.reply(_('Sending %s the Rules in an IRC Private Message') % nick, prefixNick=False)
+        else:
+            irc.reply(_('Sending you the Rules in an IRC Private Message'), prefixNick=True)
                     
         for line in _rules.split('\n'):
             irc.reply(line, to=nick, private=True)
